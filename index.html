@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Portfolio - Muhammad Fachreza Aryanagara</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Optional: Font Awesome untuk ikon skill & kontak -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujlZH0l3k91f0z40g5I5L5pL/6g/pA9t6M5e5m4d+T+u5Fw5y0qF8+5pP4zJ5g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Custom CSS (untuk override atau tambahan yang tidak ada di Bootstrap) -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            /* Light gray background */
+            color: #343a40;
+            /* Dark text */
+        }
+
+        .navbar {
+            background-color: #343a40 !important;
+            /* Darker navbar */
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #ffffff !important;
+        }
+
+        .navbar-nav .nav-link.active,
+        .navbar-nav .nav-link:hover {
+            color: #007bff !important;
+            /* Blue hover for links */
+        }
+
+        .hero-section {
+            background: linear-gradient(to right, #007bff, #0056b3);
+            /* Gradient blue background */
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 25px;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-section p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .about-me-section {
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            padding: 40px;
+            /* Added padding for content inside the card-like section */
+            margin-top: -60px;
+            /* Pulls it up slightly to overlap with the hero */
+            position: relative;
+            z-index: 1;
+            /* Ensure it's above the hero background */
+        }
+
+        .skills-section,
+        .contact-section {
+            /* Added contact-section here */
+            background-color: #e9ecef;
+            /* Lighter gray */
+        }
+
+        /* Styling for Skill Cards */
+        .skill-card {
+            background-color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            /* Ensure cards in a row have equal height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-card .skill-icon {
+            font-size: 3em;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .skill-card .skill-name {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #343a40;
+        }
+
+        .project-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            /* Ensure project cards in a row have equal height */
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card img {
+            height: 220px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .project-card .card-body {
+            padding: 25px;
+        }
+
+        .project-card .card-title {
+            color: #007bff;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Contact Section Styling */
+        .contact-info .icon {
+            font-size: 2em;
+            color: #007bff;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Center horizontally */
+        }
+
+        .contact-info a {
+            color: #343a40;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #007bff;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Fachreza's Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home/Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <img src="img/Polish_20241027_115244326.jpg" alt="Your Profile Picture" class="profile-pic">
+            <h1>Halo, Saya Muhammad Fachreza Aryanagara</h1>
+            <p class="lead">Hallo!, saya Muhammad Fachreza Aryanagara anak SMK NEGERI 9 SEMARANG tepatnya di jurusan
+                PPLG.
+                Saya adalah siswa yang memiliki tujuan sebagai web development/ full stack development.</p>
+            <a href="#projects" class="btn btn-light btn-lg mt-3">Lihat Proyek Saya</a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-me-section">
+                <h2 class="text-center mb-4 display-5 fw-bold">About Me</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <p class="text-center lead">
+                            Saya adalah seorang pengembang web yang memiliki ketertarikan mendalam pada teknologi dan
+                            coding.
+                            Saya senang belajar hal baru dan menghadapi tantangan untuk menciptakan solusi digital yang
+                            inovatif.
+                            Dengan pengalaman dalam membangun berbagai jenis website, saya selalu berusaha untuk
+                            menghasilkan
+                            karya yang fungsional, responsif, dan mudah digunakan. Saya bersemangat untuk terus
+                            berkembang
+                            dan memberikan kontribusi terbaik dalam setiap proyek.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding skills-section">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">My Skills</h2>
+            <div class="row justify-content-center g-4">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="skill-card">
+                        <i class="fab fa-html5 skill-icon"></i>
+                        <div class="skill-name">HTML</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="skill-card">
+                        <i class="fab fa-css3-alt skill-icon"></i>
+                        <div class="skill-name">CSS</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="skill-card">
+                        <i class="fab fa-js-square skill-icon"></i>
+                        <div class="skill-name">JavaScript</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="skill-card">
+                        <i class="fab fa-php skill-icon"></i>
+                        <div class="skill-name">PHP</div>
+                    </div>
+                </div>
+                <!-- Anda bisa menambahkan lebih banyak skill di sini -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding projects">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">My Projects</h2>
+            <div class="row g-4" id="projectGrid">
+                <!-- Projects will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding contact-section">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">Contact Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-info text-center">
+                        <p><i class="fas fa-phone-alt icon"></i> <a href="tel:+6281234567890">+62 82327395632</a></p>
+                        <p><i class="fas fa-envelope icon"></i> <a
+                                href="mailto:your.email@example.com">adekreza596@gmil.com</a></p>
+                        <p><i class="fas fa-map-marker-alt icon"></i> Jl.Bedagan Raya 525a, Semarang, Jawa Tengah</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="mb-0"></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (Popper.js included) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const projectsData = [
+                {
+                    title: 'Project Data Inventaris Pintar',
+                    description: 'Saya membuat website ini dengan tujuan untuk mempermudah masyarakat dalam membeli atau memberikan barang kepada kami untuk didistribusikan kepada orang lain.',
+                    imageUrl: 'img/Screenshot 2025-09-11 074349.png',
+                },
+                {
+                    title: 'Project Reminder',
+                    description: 'Di sini, saya membuat web reminder untuk mengingatkan orang agar mengembalikan buku perpustakaan.',
+                    imageUrl: 'img/Screenshot 2025-11-04 230901.png',
+                },
+                {
+                    title: 'Blood Donor Website',
+                    description: 'Sebuah platform untuk menghubungkan donor darah dengan mereka yang membutuhkan, membantu menyelamatkan nyawa di komunitas.',
+                    imageUrl: 'img/Screenshot 2025-09-11 080459.png',
+                },
+                {
+                    title: 'Project e-kampung',
+                    description: 'Saya membuat website ini agar desa saya terlihat modern dan orang asing bisa mengenali seperti apa desa saya.',
+                    imageUrl: 'img/Screenshot 2025-09-11 075855.png',
+                },
+                {
+                    title: 'Project Daftar Antrian Online',
+                    description: 'Saya membuat halaman ini agar dokter dan pengguna dapat dengan mudah melihat berapa lama antrian dan hari serta jam berapa dokter tersedia.',
+                    imageUrl: 'img/Screenshot 2025-09-23 220329.png',
+                },
+                {
+                    title: 'Project Dokter Alini',
+                    description: 'Saya membuat website ini agar pengguna atau warga bisa mengenal dr. Alini.',
+                    imageUrl: 'img/Screenshot 2025-09-24 083748.png',
+                },
+                {
+                    title: 'Project Semarangan',
+                    description: 'Saya membuat website ini untuk mempermudah wisatawan dalam memesan tempat wisata atau memesan makanan dan minuman.',
+                    imageUrl: 'img/semarangan.png',
+                },
+                {
+                    title: 'Project BNSP',
+                    description: 'Saya membuat website ini untuk mempermudah wisatawan dalam memesan tempat wisata atau memesan makanan dan minuman.',
+                    imageUrl: 'img/Screenshot 2025-09-25 072948.png',
+                },
+            ];
+
+            const projectGrid = document.getElementById('projectGrid');
+
+            projectsData.forEach(project => {
+                const projectCardCol = document.createElement('div');
+                projectCardCol.classList.add('col-md-6', 'col-lg-4'); // Make it responsive with Bootstrap grid
+
+                projectCardCol.innerHTML = `
+                    <div class="card project-card h-100">
+                        <img src="${project.imageUrl}" class="card-img-top" alt="${project.title}">
+                        <div class="card-body">
+                            <h3 class="card-title">${project.title}</h3>
+                            <p class="card-text">${project.description}</p>
+                        </div>
+                    </div>
+                `;
+                projectGrid.appendChild(projectCardCol);
+            });
+        });
+    </script>
+</body>
+
+</html>
